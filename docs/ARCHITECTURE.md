@@ -92,7 +92,7 @@ flowchart LR
 
 Every objective runs inside a closed iterative loop:
 
-$$\text{Research} \longrightarrow \text{Build} \longrightarrow \text{Test} \longrightarrow \text{Run} \longrightarrow \text{Analyze} \longrightarrow \text{Learn \& Improve}$$
+$$\text{Research} \longrightarrow \text{Build} \longrightarrow \text{Test} \longrightarrow \text{Run} \longrightarrow \text{Analyze} \longrightarrow \text{Learn and Improve}$$
 
 The active stage is tracked in `.02/state.json` under `active_stage` (`IDLE`, `RESEARCH`, `BUILD`, `TEST`, `RUN`, `ANALYZE`, `LEARN`, `IMPROVE`).
 

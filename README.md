@@ -4,7 +4,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](./LICENSE)
 [![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-3776AB.svg)](./requirements.txt)
-[![Verification: Triple-Gate](https://img.shields.io/badge/Verification-Triple--Gate-2ea44f.svg)](./references/triple_gate.md)
+[![Verification: Triple-Gate](https://img.shields.io/badge/Verification-Triple%20Gate-2ea44f.svg)](./references/triple_gate.md)
 
 ---
 
@@ -12,7 +12,7 @@
 
 **`02`** transforms a single AI coding assistant into a structured, hierarchical production agency. When activated (`activate 02` or `/02`), the primary agent operates as an **Executive Director** orchestrating five specialized roles across an iterative closed loop:
 
-$$\text{Research} \longrightarrow \text{Build} \longrightarrow \text{Test} \longrightarrow \text{Run} \longrightarrow \text{Analyze} \longrightarrow \text{Learn \& Improve}$$
+$$\text{Research} \longrightarrow \text{Build} \longrightarrow \text{Test} \longrightarrow \text{Run} \longrightarrow \text{Analyze} \longrightarrow \text{Learn and Improve}$$
 
 Rather than letting agents run unconstrained—burning API rate limits, exhausting host RAM/CPU, polluting project roots with unvetted dependencies, or declaring success without empirical execution—**`02`** enforces strict operational guardrails across four planes:
 

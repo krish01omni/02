@@ -98,7 +98,7 @@ When the team requires external libraries, templates, or GitHub repositories:
 ## 6. The Autonomous Loop: Triple-Gate Verification
 
 The team executes in a continuous loop:
-$$\text{Research} \longrightarrow \text{Build} \longrightarrow \text{Test} \longrightarrow \text{Run} \longrightarrow \text{Analyze} \longrightarrow \text{Learn \& Improve}$$
+$$\text{Research} \longrightarrow \text{Build} \longrightarrow \text{Test} \longrightarrow \text{Run} \longrightarrow \text{Analyze} \longrightarrow \text{Learn and Improve}$$
 
 The loop repeats until the deliverable satisfies the **Triple-Gate Verification Protocol**:
 - **Gate 1 (Automated Execution Tests):** Code must build and pass 100% of executable tests, linters, and runtime health checks with exit code `0`.

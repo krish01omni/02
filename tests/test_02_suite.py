@@ -275,3 +275,9 @@ def test_markdown_links_and_mermaid_safety():
         for idx, block in enumerate(mermaid_re.findall(text), 1):
             bad_match = unquoted_pipe_re.search(block)
             assert not bad_match, f"Unquoted '|' in Mermaid label in {md} block #{idx}: {bad_match.group(0)}"
+
+        # 3. Verify no GFM-unescaped ampersands inside math blocks (GitHub MathJax 'Misplaced &' guard)
+        for math_block in re.findall(r"\$\$[\s\S]*?\$\$", stripped):
+            assert "&" not in math_block or "\\begin{aligned}" in math_block, (
+                f"Ampersand inside display math block can trigger GitHub MathJax error in {md}: {math_block}"
+            )
