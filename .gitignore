@@ -1,0 +1,38 @@
+# Environment & Secrets (NEVER commit)
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+*.secret
+secrets.*
+credentials.*
+
+# 02 Runtime Sandbox Artifacts (NEVER commit)
+.02/
+browser_profile/
+logs/
+resources/
+state.json
+
+# Python Artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.pytest_cache/
+.venv/
+venv/
+dist/
+build/
+
+# OS & Editor Artifacts
+.DS_Store
+Thumbs.db
+*.tmp
+*.bak
+*.swp
+.vscode/
+.idea/
