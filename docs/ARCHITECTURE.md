@@ -208,7 +208,7 @@ sequenceDiagram
     participant Build as Builder (Flash/Pro)
     participant QA as QA Auditor (Flash)
 
-    User->>ED: "/02 <Project Goal>"
+    User->>ED: /02 [Project Goal]
     ED->>Boot: bootstrap.py --target-dir .
     Boot-->>ED: .02/ workspace + state.json initialized
     ED->>Boot: guardian.py --check-once & --can-spawn
@@ -219,7 +219,7 @@ sequenceDiagram
 
     opt External Open-Source Tools Needed
         ED->>Scav: Locate FOSS implementation
-        Scav->>Scav: scavenger.py --clone <url>
+        Scav->>Scav: scavenger.py --clone [url]
         Scav-->>ED: Cloned to .02/resources/ + License APPROVED
     end
 

@@ -106,35 +106,35 @@ pytest -v
 
 ```mermaid
 flowchart TB
-    User([User Goal / /02 Activation]) --> Director[Executive Director<br/>Pro Tier — Orchestration & Gate 3]
+    User(["User Goal · /02 Activation"]) --> Director["Executive Director\nPro Tier — Orchestration & Gate 3"]
 
-    subgraph ControlPlane [Control & Governance Plane]
-        Director --> Architect[Lead Architect<br/>Pro Tier — Specs & Contracts]
-        Director --> Guardian[Guardian Sentinel<br/>RAM/CPU < 90% | API <= 85% RPM/TPM]
-        Director --> Dashboard[CLI Command Dashboard<br/>Telemetry & Gate Visibility]
+    subgraph ControlPlane ["Control & Governance Plane"]
+        Director --> Architect["Lead Architect\nPro Tier — Specs & Contracts"]
+        Director --> Guardian["Guardian Sentinel\nRAM/CPU < 90% · API <= 85% RPM/TPM"]
+        Director --> Dashboard["CLI Command Dashboard\nTelemetry & Gate Visibility"]
     end
 
-    subgraph ExecutionPlane [Specialist Execution Plane]
-        Architect --> Scavenger[Scavenger & Researcher<br/>Flash Tier — FOSS License Audit]
-        Architect --> Stealth[Stealth Web Specialist<br/>Hybrid — Bezier & Persistent Profile]
-        Architect --> Builder[Builder / Engineers<br/>Flash/Pro — Modular Implementation]
+    subgraph ExecutionPlane ["Specialist Execution Plane"]
+        Architect --> Scavenger["Scavenger & Researcher\nFlash Tier — FOSS License Audit"]
+        Architect --> Stealth["Stealth Web Specialist\nHybrid — Bezier & Persistent Profile"]
+        Architect --> Builder["Builder / Engineers\nFlash/Pro — Modular Implementation"]
     end
 
-    subgraph VerificationPlane [Triple-Gate Verification Loop]
-        Builder --> G1{Gate 1<br/>Automated Tests<br/>Exit Code 0}
+    subgraph VerificationPlane ["Triple-Gate Verification Loop"]
+        Builder --> G1{"Gate 1\nAutomated Tests\nExit Code 0"}
         G1 -- Fail --> Builder
-        G1 -- Pass --> G2{Gate 2<br/>Independent QA Auditor<br/>Edge Cases & Leaks}
+        G1 -- Pass --> G2{"Gate 2\nIndependent QA Auditor\nEdge Cases & Leaks"}
         G2 -- Reject --> Builder
-        G2 -- Approve --> G3{Gate 3<br/>Executive Director<br/>Holistic Prompt Alignment}
+        G2 -- Approve --> G3{"Gate 3\nExecutive Director\nHolistic Prompt Alignment"}
         G3 -- Revise --> Builder
-        G3 -- Approve --> Done([Verified Deliverable])
+        G3 -- Approve --> Done(["Verified Deliverable"])
     end
 
-    subgraph SandboxPlane [Project-Local Sandbox: .02/]
-        State[(state.json)]
-        Resources[(resources/)]
-        Browser[(browser_profile/)]
-        Logs[(logs/)]
+    subgraph SandboxPlane ["Project-Local Sandbox: .02/"]
+        State[("state.json")]
+        Resources[("resources/")]
+        Browser[("browser_profile/")]
+        Logs[("logs/")]
     end
 
     Guardian <--> State

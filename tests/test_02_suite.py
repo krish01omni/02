@@ -247,3 +247,31 @@ def test_repo_privacy_and_sanitization():
             assert not pat.search(content), f"Potential secret pattern {pat.pattern} found in {path}"
         assert not personal_path_pattern.search(content), f"Local personal path found in {path}"
         assert not gmail_pattern.search(content), f"Personal email address found in {path}"
+
+
+def test_markdown_links_and_mermaid_safety():
+    """Verify all local markdown links resolve and Mermaid labels avoid unquoted pipe hazards."""
+    md_files = [
+        p for p in REPO_ROOT.rglob("*.md")
+        if ".git" not in p.parts and ".02" not in p.parts
+    ]
+    link_re = re.compile(r"!?\[[^\]]*\]\(([^)]+)\)")
+    mermaid_re = re.compile(r"```mermaid\r?\n(.*?)```", re.S)
+    code_fence_re = re.compile(r"```[\s\S]*?```")
+    unquoted_pipe_re = re.compile(r"\[[^\"\]\n]*\|[^\"\]\n]*\]|\{[^\"\}\n]*\|[^\"\}\n]*\}")
+
+    for md in md_files:
+        text = md.read_text(encoding="utf-8")
+        # 1. Verify relative file links outside fenced code blocks exist
+        stripped = code_fence_re.sub("", text)
+        for raw_target in link_re.findall(stripped):
+            target = raw_target.split("#")[0].strip()
+            if not target or target.startswith(("http://", "https://", "mailto:")):
+                continue
+            resolved = (md.parent / target).resolve()
+            assert resolved.exists(), f"Broken relative link '{raw_target}' in {md}"
+
+        # 2. Verify no unquoted '|' inside Mermaid node labels (GitHub parse error guard)
+        for idx, block in enumerate(mermaid_re.findall(text), 1):
+            bad_match = unquoted_pipe_re.search(block)
+            assert not bad_match, f"Unquoted '|' in Mermaid label in {md} block #{idx}: {bad_match.group(0)}"
